@@ -10,20 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_03_235514) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_04_001258) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "endpoint_payloads", force: :cascade do |t|
+    t.bigint "endpoint_id", null: false
+    t.bigint "payload_id", null: false
+    t.boolean "expect_success", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["endpoint_id"], name: "index_endpoint_payloads_on_endpoint_id"
+    t.index ["payload_id"], name: "index_endpoint_payloads_on_payload_id"
+  end
 
   create_table "endpoints", force: :cascade do |t|
     t.string "name"
     t.text "url"
     t.text "description"
-    t.bigint "expected_payload_id"
-    t.bigint "wrong_payload_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["expected_payload_id"], name: "index_endpoints_on_expected_payload_id"
-    t.index ["wrong_payload_id"], name: "index_endpoints_on_wrong_payload_id"
   end
 
   create_table "payloads", force: :cascade do |t|
@@ -44,6 +50,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_03_235514) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "endpoints", "payloads", column: "expected_payload_id"
-  add_foreign_key "endpoints", "payloads", column: "wrong_payload_id"
+  add_foreign_key "endpoint_payloads", "endpoints"
+  add_foreign_key "endpoint_payloads", "payloads"
 end
