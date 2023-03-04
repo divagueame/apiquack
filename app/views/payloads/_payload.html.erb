@@ -1,0 +1,12 @@
+<div id="<%= dom_id payload %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Data:</strong>
+    <%= payload.data %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this payload", payload, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this payload', edit_payload_path(payload), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

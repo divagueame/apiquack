@@ -1,0 +1,22 @@
+<div id="<%= dom_id endpoint %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= endpoint.name %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Url:</strong>
+    <%= endpoint.url %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Description:</strong>
+    <%= endpoint.description %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this endpoint", endpoint, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this endpoint', edit_endpoint_path(endpoint), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
