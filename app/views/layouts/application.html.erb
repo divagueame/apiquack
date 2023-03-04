@@ -12,6 +12,13 @@
   </head>
 
   <body>
+    <div class="flex flex-end gap-4 items-center py-2 bg-indigo-900">
+      <%= link_to "Endpoints", endpoints_path, class: "ml-2 rounded-lg py-3 px-5 bg-white inline-block font-medium" %>
+      <%= link_to "Payloads", payloads_path, class: "ml-2 rounded-lg py-3 px-5 bg-white inline-block font-medium" %>
+      <%= link_to 'New payload', new_payload_path, class: "ml-auto rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+      <%= link_to 'New endpoint', new_endpoint_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    </div>
+
     <main class="container mx-auto mt-28 px-5 flex">
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
