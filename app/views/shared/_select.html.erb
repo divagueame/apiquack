@@ -1,0 +1,7 @@
+<h1>Select Endpoint</h1>
+<%= form_tag new_payload_path, method: :get, data: { controller: 'autosubmit', turbo_frame: 'endpoints' } do %>
+    <%= text_field_tag 'query', nil, data: { action: "autosubmit#debouncedSubmit"} %>
+<% end %>
+<%= turbo_frame_tag 'endpoints' do %>
+ Found endpoints here...
+<% end %>

@@ -12,6 +12,7 @@ class PayloadsController < ApplicationController
 
   # GET /payloads/new
   def new
+    @endpoints = Endpoint.search(params)
     @payload = Payload.new
   end
 
@@ -26,10 +27,8 @@ class PayloadsController < ApplicationController
     respond_to do |format|
       if @payload.save
         format.html { redirect_to payload_url(@payload), notice: "Payload was successfully created." }
-        format.json { render :show, status: :created, location: @payload }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @payload.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -39,10 +38,8 @@ class PayloadsController < ApplicationController
     respond_to do |format|
       if @payload.update(payload_params)
         format.html { redirect_to payload_url(@payload), notice: "Payload was successfully updated." }
-        format.json { render :show, status: :ok, location: @payload }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @payload.errors, status: :unprocessable_entity }
       end
     end
   end
