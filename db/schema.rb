@@ -10,9 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_04_001258) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_15_201714) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  # Custom types defined in this database.
+  # Note that some types may not work with other database engines. Be careful if changing database.
+  create_enum "endpoint_method", ["get", "post", "put", "delete", "patch", "head"]
 
   create_table "endpoint_payloads", force: :cascade do |t|
     t.bigint "endpoint_id", null: false
@@ -30,6 +34,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_04_001258) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.enum "method", default: "get", enum_type: "endpoint_method"
+    t.index ["method"], name: "index_endpoints_on_method"
   end
 
   create_table "payloads", force: :cascade do |t|
