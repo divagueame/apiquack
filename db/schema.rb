@@ -29,8 +29,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_15_201714) do
   end
 
   create_table "endpoints", force: :cascade do |t|
-    t.string "name"
-    t.text "url"
+    t.string "name", null: false
+    t.text "url", null: false
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
