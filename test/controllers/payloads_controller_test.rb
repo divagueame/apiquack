@@ -1,9 +1,9 @@
 require "test_helper"
 
 class PayloadsControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @payload = payloads(:one)
-  end
+  # setup do
+  #   @payload = payloads(:one)
+  # end
 
   test "should get index" do
     # get payloads_url
