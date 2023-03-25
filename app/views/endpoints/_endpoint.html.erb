@@ -1,13 +1,14 @@
 <div id="<%= dom_id endpoint %>" class='mb-4 px-6 py-3 shadow-xl rounded-lg'>
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= endpoint.name %>
-  </p>
+  
+  <h1><%= endpoint.name %></h1>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Url:</strong>
-    <%= endpoint.url %>
-  </p>
+  <%= turbo_frame_tag 'url' do %>
+    <%= link_to edit_single_field_endpoint_path(endpoint) do %>
+        <strong class="inline-block font-medium mb-1"> <%= inline_svg 'url', class: "w-6 h-6 p-1 rounded-lg bg-emerald-400 inline" %></strong>
+        <%= endpoint.url %>
+    <% end %>
+  <% end %>
+
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Description:</strong>

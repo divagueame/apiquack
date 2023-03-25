@@ -1,5 +1,5 @@
 class EndpointsController < ApplicationController
-  before_action :set_endpoint, only: %i[ show edit update destroy ]
+  before_action :set_endpoint, only: %i[ show edit edit_single_field update destroy ]
 
   def index
     @endpoints = Endpoint.all
@@ -14,6 +14,9 @@ class EndpointsController < ApplicationController
   end
 
   def edit
+  end
+
+  def edit_single_field
   end
 
   def create

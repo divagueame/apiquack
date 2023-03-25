@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :endpoints
-  resources :payloads
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  get 'endpoints/edit_single_field/:id', to: 'endpoints#edit_single_field', as: 'edit_single_field_endpoint'
 
-  # Defines the root path route ("/")
+  resources :payloads
+
   root "static#home"
 end
