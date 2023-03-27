@@ -5,44 +5,44 @@ class PayloadsControllerTest < ActionDispatch::IntegrationTest
   #   @payload = payloads(:one)
   # end
 
-  test "should get index" do
+  # test "should get index" do
     # get payloads_url
     # assert_response :success
-  end
+  # end
 
-  test "should get new" do
+  # test "should get new" do
     # get new_payload_url
     # assert_response :success
-  end
+  # end
 
-  test "should create payload" do
+  # test "should create payload" do
     # assert_difference("Payload.count") do
     #   post payloads_url, params: { payload: { data: @payload.data } }
     # end
 
     # assert_redirected_to payload_url(Payload.last)
-  end
+  # end
 
-  test "should show payload" do
+  # test "should show payload" do
     # get payload_url(@payload)
     # assert_response :success
-  end
+  # end
 
-  test "should get edit" do
+  # test "should get edit" do
     # get edit_payload_url(@payload)
     # assert_response :success
-  end
+  # end
 
-  test "should update payload" do
+  # test "should update payload" do
     # patch payload_url(@payload), params: { payload: { data: @payload.data } }
     # assert_redirected_to payload_url(@payload)
-  end
+  # end
 
-  test "should destroy payload" do
+  # test "should destroy payload" do
     # assert_difference("Payload.count", -1) do
     #   delete payload_url(@payload)
     # end
 
     # assert_redirected_to payloads_url
-  end
+  # end
 end

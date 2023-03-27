@@ -1,6 +1,6 @@
 <div class="mx-auto md:w-2/3 w-full">
   <h1 class="font-bold text-4xl">Editing single</h1>
-
+  
   <%= turbo_frame_tag :name do %>
     <%= render "single_field_form", endpoint: @endpoint, field: :name %>
   <% end %>
@@ -10,7 +10,7 @@
   <% end %>
 
 
-  <%= turbo_frame_tag :description name do %>
+  <%= turbo_frame_tag :description do %>
     <%= render "single_field_form", endpoint: @endpoint, field: :description %>
   <% end %>
 </div>
