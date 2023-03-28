@@ -13,11 +13,11 @@
 
 
     <% if field == :name %>
-        <div class="my-5">
-            <%= form.label :name %>
-            <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+        <div class="flex items-center gap-2 my-1">
+            <%= inline_svg 'name', class: "w-10 h-10 p-1 inline bg-orange-200 hover:bg-orange-100 shadow-lg hover:shadow" %>
+            <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full text-3xl" %>
+            <%= single_field_confirm_btn %>
         </div>
-        <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
     <% end %>
 
 
@@ -25,26 +25,16 @@
         <div class="flex items-center gap-2 font-medium my-1">
             <%= inline_svg 'url', class: "w-6 h-6 p-1 rounded-lg bg-emerald-400 block" %>
             <%= form.text_field :url, rows: 1, class: "border-b border-gray-400 focus:border-blue-500 focus:outline-none mr-2 flex-1 rounded-sm border-none" %>
-            <%= button_tag( :class => "bg-green-100 hover:bg-green-200 p-4 rounded-md") do %>
-                <%= inline_svg 'check.svg' %>
-            <% end %>
+            <%= single_field_confirm_btn %>
         </div>
     <% end %>
 
 
-
     <% if field == :description %>
-    <div class="my-5">
-        <%= form.label :description %>
-        <%= form.text_area :description, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
-    </div>
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+        <div class="flex items-center gap-2 font-medium my-1">
+            <%= form.text_area :description, rows: 4, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+            <%= single_field_confirm_btn %>
+        </div>
     <% end %>
-
-   
-
-
-
-
     
 <% end %>

@@ -1,20 +1,52 @@
-<div id="<%= dom_id endpoint %>" class='mb-4 px-6 py-3 shadow-xl rounded-lg'>
+<div id="<%= dom_id endpoint %>" class='my-4 px-6 py-10 shadow-xl rounded-lg'>
   
-  <h1><%= endpoint.name %></h1>
+  <%= turbo_frame_tag :name do %>
+    <h1 class="mb-2">
+      <%= link_to edit_single_field_endpoint_path(endpoint), class: "inline-block font-medium rounded-md" do %>
+        <%= inline_svg 'box', class: "w-10 h-10 p-1 inline bg-orange-200 hover:bg-orange-100 shadow-lg hover:shadow" %>
+        <%= endpoint.name %>
+      </h1>
+      <% end %>
+  <% end %>
+    
 
-  <%= turbo_frame_tag 'url' do %>
-    <%= link_to edit_single_field_endpoint_path(endpoint) do %>
-        <strong class="inline-block font-medium mb-1"> <%= inline_svg 'url', class: "w-6 h-6 p-1 rounded-lg bg-emerald-400 inline" %></strong>
+  <%= turbo_frame_tag :url do %>
+  <div>
+    <%= link_to edit_single_field_endpoint_path(endpoint), class: "hover:bg-green-100 inline-block font-medium mt-2 mb-4 pr-3 hover:shadow rounded-sm" do %>
+        <%= inline_svg 'url', class: "w-6 h-6 p-1 rounded-lg bg-emerald-400 inline" %>
         <%= endpoint.url %>
     <% end %>
+  </div>
   <% end %>
 
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
-    <%= endpoint.description %>
-  </p>
+  <%= turbo_frame_tag :description do %>
+    <div>
+      <%= link_to edit_single_field_endpoint_path(endpoint), class: "hover:bg-purple-200 inline-block font-medium my-1 pr-3 hover:shadow rounded-sm" do %>
+          <%= inline_svg 'description', class: "w-6 h-6 p-1 rounded-lg bg-purple-400 inline" %>
+          <%= endpoint.description %>
+      <% end %>
+    </div>
+  <% end %>
 
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Payloads: <%= endpoint.payloads.count %></strong>
+  </p>
+ 
+
+  <div class="flex">
     <%= link_to 'Edit this endpoint', edit_endpoint_path(endpoint), class: "rounded-lg py-3 ml-2 px-5 border border-purple-300 bg-purple-50 inline-block font-medium hover:bg-purple-200" %>
-    <%= link_to 'Delete this endpoint', edit_endpoint_path(endpoint), class: "rounded-lg py-3 ml-2 px-5 border border-red-300 bg-red-50 inline-block font-medium hover:bg-red-200" %>
+    <%= button_to endpoint_path(endpoint),
+    method: :delete,
+    class: "rounded-lg py-3 ml-2 px-5 border border-red-300 bg-red-50 inline-block font-medium hover:bg-red-200",
+    form: {
+        data: {
+          turbo_confirm: "true",
+          confirm_body: "The world may implode if you continue."
+        }
+    } do
+    %>
+      <%= inline_svg 'delete.svg' %>
+    <% end %>
+  </div>
 </div>
