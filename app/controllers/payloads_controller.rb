@@ -65,6 +65,6 @@ class PayloadsController < ApplicationController
     end
 
     def payload_params
-      params.require(:payload).permit(:data)
+      params.require(:payload).permit(:data, :tab)
     end
 end

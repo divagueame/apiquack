@@ -5,3 +5,14 @@
   <%= render 'shared/select' %>
   
 </div>
+
+
+
+<%= turbo_frame_tag 'tab_content' do %>
+  <% if params[:tab] == 'textarea'  %>
+    <%= render 'payloads/tab_textarea' %>
+  <% end %>
+  <% if params[:tab] == 'other'  %>
+  Other
+  <% end %>
+<% end %>
