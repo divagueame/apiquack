@@ -1,12 +1,22 @@
-<div id="<%= dom_id payload %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Data:</strong>
+<div id="<%= dom_id payload %>" class='transition-all duration-150 mb-4 px-6 py-3 shadow-xl rounded-lg mx-auto w-96 relative flex items-center' data-controller='copypaste'>
+  <span data-copypaste-target="content">
     <%= payload.data %>
-  </p>
+  </span>
+  
+  <div data-action="click->copypaste#copy" data-copypaste-target="action" class='py-s4 bg-slate-200 rounded-lg shadow-sm hover:cursor-pointer hover:opacity-80 absolute right-0'>
+    <div data-copypaste-target="btn">
+      <%= inline_svg 'copy' %>
+    </div>
+    <div data-copypaste-target="feedback" class='hidden'>
+        <%= inline_svg 'check' %> 
+    </div>
+  </div>
+</div>
 
-  <% if action_name != "show" %>
-    <%= link_to "Show this payload", payload, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+
+
+  <% if action_name == "sshow" %>
+    <% link_to "Show this payload", payload, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
     <%= link_to 'Edit this payload', edit_payload_path(payload), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
     <hr class="mt-6">
   <% end %>
-</div>
