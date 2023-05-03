@@ -29,6 +29,16 @@
     </label>
   </div>
 
+<%= turbo_frame_tag 'tab_content' do %>
+  <% if params[:tab] == 'textarea'  %>
+    <% render partial: 'payloads/tab_textarea', form: form %>
+  <% end %>
+  <% if params[:tab] == 'other'  %>
+    <%= form %>
+    <% render partial: 'payloads/tab_other', form: form %>
+  <% end %>
+<% end %>
+
   <div class="inline">
     <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
   </div>

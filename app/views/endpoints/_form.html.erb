@@ -32,12 +32,7 @@
   </div>
 
   <%= turbo_frame_tag 'tab_content' do %>
-      <%= form.fields_for :payloads do |payload_fields| %>
-      <div class="my-5">
-        <%= payload_fields.label :data %>
-        <%= payload_fields.text_area :data, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full", rows: 10 %>
-      </div>
-    <% end %>
+    <%= render partial: 'payloads/tab_textarea', locals: { form: form } %>
   <% end %>
  
 

@@ -2,13 +2,13 @@ require "application_system_test_case"
 
 class EndpointsTest < ApplicationSystemTestCase
   setup do
-    @endpoint = endpoints(:one)
+    # @endpoint = endpoints(:one)
   end
 
-  # test "visiting the index" do
-  #   visit endpoints_url
-  #   assert_selector "h1", text: "Endpoints"
-  # end
+  test "visiting the index" do
+    # visit endpoints_url
+    # assert_selector "h1", text: "Endpoints"
+  end
 
   # test "should create endpoint" do
   #   visit endpoints_url
